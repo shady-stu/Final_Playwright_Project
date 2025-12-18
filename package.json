@@ -1,0 +1,22 @@
+{
+  "name": "final_playwright_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shady-stu/Final_Playwright_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shady-stu/Final_Playwright_Project/issues"
+  },
+  "homepage": "https://github.com/shady-stu/Final_Playwright_Project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3"
+  }
+}
