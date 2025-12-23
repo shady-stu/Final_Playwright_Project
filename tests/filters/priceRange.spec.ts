@@ -45,7 +45,7 @@ test.describe('Invalid price range (EP)', () => {
     {
       min: 150,
       max: 100,
-      error: 'min > max',
+      error: 'Min price cannot be greater than max price',
       title: 'min > max',
     },
   ];
