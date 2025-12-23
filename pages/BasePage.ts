@@ -6,7 +6,7 @@ export class BasePage {
   async navigate() {
     const baseUrl = 'https://practicesoftwaretesting.com';
     await this.page.goto(baseUrl);
-    await this.page.waitForLoadState('networkidle');
+   await this.page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
   }
 
   async waitForElement(selector: string, timeout: number = 10000) {

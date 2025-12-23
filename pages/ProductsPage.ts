@@ -8,7 +8,7 @@ export class ProductsPage {
   }
 
   addToCartButton(): Locator {
-    return this.page.locator('button:has-text("Add to cart")');
+    return this.page.getByRole('button', { name: 'Add to cart' });
   }
 
   cartLink(): Locator {
@@ -24,7 +24,6 @@ export class ProductsPage {
   }
 
   async addToCart() {
-    await this.addToCartButton().waitFor({ state: 'visible' });
     await this.addToCartButton().click();
   }
 
@@ -33,8 +32,8 @@ export class ProductsPage {
   }
 
   async removeProductFromCart() {
-    await this.removeFromCartButton().waitFor({ state: 'visible' });
-    await this.removeFromCartButton().click();
+    const btn = this.removeFromCartButton();
+    await btn.waitFor({ state: 'attached' });
+    await btn.click();
   }
-  
 }
