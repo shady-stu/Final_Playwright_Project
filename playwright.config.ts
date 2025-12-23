@@ -12,11 +12,7 @@ export default defineConfig({
     timeout: 5000,
   },
 
-  // ✅ تقرير HTML
   reporter: [['html', { open: 'never' }]],
-  // غير never إلى:
-  // 'always' → يفتح التقرير بعد كل run
-  // 'on-failure' → يفتح بس لو في فشل
 
   use: {
     baseURL: 'https://practicesoftwaretesting.com',
@@ -37,7 +33,7 @@ export default defineConfig({
       },
     },
 
-    // Firefox (مغلق حاليًا)
+    // Firefox 
     // {
     //   name: 'Firefox',
     //   use: {
