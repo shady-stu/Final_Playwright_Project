@@ -1,5 +1,3 @@
-
-
 import { test, expect } from '@playwright/test';
 import { PriceRangePage } from '../../pages/PriceRangePage';
 
@@ -10,8 +8,8 @@ test.beforeEach(async ({ page }) => {
   await pricePage.navigate();
   await page.waitForLoadState('domcontentloaded');
 });
-test.describe('Valid price range (EP + Boundary)', () => {
 
+test.describe('Valid price range (EP + Boundary)', () => {
   const validCases = [
     { min: 0, max: 200, title: 'min=0 max=200 (boundaries)' },
     { min: 0, max: 0, title: 'min=0 max=0 (lower boundary)' },
@@ -26,9 +24,7 @@ test.describe('Valid price range (EP + Boundary)', () => {
   }
 });
 
-
 test.describe('Invalid price range (EP)', () => {
-
   const invalidCases = [
     {
       min: -1,
@@ -58,5 +54,3 @@ test.describe('Invalid price range (EP)', () => {
     });
   }
 });
-
-
