@@ -5,14 +5,16 @@ export class PriceRangePage extends BasePage {
   minSliderHandle = this.page.locator('.ngx-slider').first().locator('[role="slider"]').first();
   maxSliderHandle = this.page.locator('.ngx-slider').first().locator('[role="slider"]').nth(1);
 
-  async setPriceRange(min: number, max: number) {
+  async  setPriceRange(min: number, max: number) {
  
-    await this.page.locator('.ngx-slider').first().waitFor({ state: 'visible' });
-    
-
+  if (min < 0) throw new Error('Min price cannot be negative');
+  if (max > 200) throw new Error('Max price cannot exceed 200');
+  if (min > max) throw new Error('Min price cannot be greater than max price');
+  
+await this.page.locator('.ngx-slider').first().waitFor({ state: 'visible' });
     await this.minSliderHandle.focus();
-    const currentMin = await this.minSliderHandle.getAttribute('aria-valuenow');
-    const minDiff = min - (currentMin ? Number(currentMin) : 0);
+    const currentMin = Number(await this.minSliderHandle.getAttribute('aria-valuenow') ?? 0);
+  const minDiff = min - currentMin;
     
     if (minDiff > 0) {
       for (let i = 0; i < minDiff; i++) {
@@ -25,9 +27,9 @@ export class PriceRangePage extends BasePage {
     }
     
 
-    await this.maxSliderHandle.focus();
-    const currentMax = await this.maxSliderHandle.getAttribute('aria-valuenow');
-    const maxDiff = max - (currentMax ? Number(currentMax) : 200);
+     await this.maxSliderHandle.focus();
+  const currentMax = Number(await this.maxSliderHandle.getAttribute('aria-valuenow') ?? 200);
+  const maxDiff = max - currentMax;
     
     if (maxDiff > 0) {
       for (let i = 0; i < maxDiff; i++) {

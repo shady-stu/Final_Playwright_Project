@@ -7,18 +7,18 @@ export class SearchPage extends BasePage {
 
   async search(keyword: string) {
     try {
-      // Wait for search input to be visible
+      
       await this.searchInput.waitFor({ state: 'visible', timeout: 5000 });
       
-      // Click to focus and clear
+      
       await this.searchInput.click();
       await this.searchInput.clear();
       
-      // Type the search keyword
+      
       await this.searchInput.fill(keyword);
       await this.searchInput.press('Enter');
       
-      // Alternative: click search button if enter doesn't work
+    
       try {
         await this.page.waitForLoadState('domcontentloaded');
       } catch {

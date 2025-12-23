@@ -2,7 +2,6 @@ import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 
-// Load environment variables from .env at project root
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 export default defineConfig({

@@ -1,4 +1,4 @@
-// tests/filters/filters.spec.ts
+
 import { test } from '@playwright/test';
 import { FilterPage } from '../../pages/FilterPage';
 
