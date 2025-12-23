@@ -29,26 +29,26 @@ test.describe('Valid price range (EP + Boundary)', () => {
 
 test.describe('Invalid price range (EP)', () => {
 
-  const invalidCases = [
-    {
-      min: -1,
-      max: 100,
-      error: 'Min price cannot be negative',
-      title: 'min < 0',
-    },
-    {
-      min: 50,
-      max: 201,
-      error: 'Max price cannot exceed 200',
-      title: 'max > 200',
-    },
-    {
-      min: 150,
-      max: 100,
-      error: 'min > max',
-      title: 'min > max',
-    },
-  ];
+ const invalidCases = [
+  {
+    min: -1,
+    max: 100,
+    error: 'Min price cannot be negative',
+    title: 'min < 0',
+  },
+  {
+    min: 50,
+    max: 201,
+    error: 'Max price cannot exceed 200',
+    title: 'max > 200',
+  },
+  {
+    min: 150,
+    max: 100,
+    error: 'Min price cannot be greater than max price', 
+    title: 'min > max',
+  },
+];
 
   for (const { min, max, error, title } of invalidCases) {
     test(title, async () => {
